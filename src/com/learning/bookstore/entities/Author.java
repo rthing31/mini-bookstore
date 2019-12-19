@@ -1,21 +1,14 @@
 package com.learning.bookstore.entities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Author {
 
-	private int id;
+	private int id = 0;
 	private String name;
-	private List<Book> books;
+	private List<Book> books = new ArrayList<Book>();
 	
-	
-	
-	
-	public Author(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
 	public Author(int id, String name, List<Book> books) {
 		super();
 		this.id = id;
@@ -32,8 +25,8 @@ public class Author {
 	public int getId() {
 		return id;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setId() {
+		++this.id;
 	}
 	public String getName() {
 		return name;

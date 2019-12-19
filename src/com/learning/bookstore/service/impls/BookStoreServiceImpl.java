@@ -1,5 +1,7 @@
 package com.learning.bookstore.service.impls;
 
+import java.util.List;
+
 import com.learning.bookstore.database.Database;
 import com.learning.bookstore.entities.Author;
 import com.learning.bookstore.entities.Book;
@@ -11,16 +13,17 @@ public class BookStoreServiceImpl implements BookStoreService{
 
 	@Override
 	public String addAuthor(Author author) {
-		
-		return null;
+		database.getAuthorList().add(author);
+		database.setTotalAuthors();
+		return author.getName() + " has been added to the list of authors";
+				
 	}
 
 	@Override
 	public String addBook(Book book) {
-		String message = "";
 		database.getBookList().add(book);
-		message = book.getTitle()+ " has been saved.";
-		return message;
+		database.setTotalBooks(book.getNumber());
+		return book.getTitle() + " has been added to the inventory.";
 	}
 
 	@Override
@@ -37,6 +40,30 @@ public class BookStoreServiceImpl implements BookStoreService{
 
 	@Override
 	public String buyBook(String title) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getTotalAuthors() {
+		
+		return database.getTotalAuthors();
+	}
+
+	@Override
+	public int getTotalBooks() {
+		
+		return database.getTotalBooks();
+	}
+
+	@Override
+	public List<Book> findAllBooksByAuthor(String authorName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Author> findAllAuthorsByBook(String bookTitle) {
 		// TODO Auto-generated method stub
 		return null;
 	}
